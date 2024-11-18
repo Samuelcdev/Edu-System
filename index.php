@@ -8,5 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <?php require_once (__DIR__ . "/app/views/layouts/header.php") ?>
+
+    <main>
+        <?= $content ?>
+    </main>
 </body>
 </html>
