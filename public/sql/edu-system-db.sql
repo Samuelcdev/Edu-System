@@ -32,7 +32,6 @@ CREATE TABLE users(
     user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_name VARCHAR(255) NOT NULL,
     user_lastname VARCHAR(255) NOT NULL,
-    user_user VARCHAR(255) NOT NULL,
     user_password VARCHAR(255) NOT NULL,
     user_profile VARCHAR(40) NOT NULL,
     user_state VARCHAR(20) NOT NULL,

@@ -1,17 +1,29 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?> | Edu System</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <?php require_once (__DIR__ . "/app/views/layouts/header.php") ?>
+<?php 
 
-    <main>
-        <?= $content ?>
-    </main>
-</body>
-</html>
+require_once ('./app/config/connection.php');
+
+$controller = $_GET['controller'] ?? null;
+$action = $_GET['action'] ?? null;
+
+if(is_null($controller) && is_null($action)){
+    $controllerFile = "./app/controllers/user/siteController.php";
+    require_once $controllerFile;
+    landing();
+    exit;
+}
+
+$controllerFile = "./app/controllers/{$controller}.php";
+
+if(file_exists($controllerFile)){
+    require_once $controllerFile;
+
+    if(function_exists($action)){
+        $action();
+    } else {
+        die ("Error: la accion no se encontro");
+    }
+} else {
+    die ("Error: el controlador no se encontro");
+}
+
+?>
