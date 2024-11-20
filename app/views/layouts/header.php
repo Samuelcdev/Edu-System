@@ -1,4 +1,4 @@
-<div class="navbar text-black max-w-[1200px] mx-auto my-3 rounded-xl shadow-xl sticky top-0 z-50 backdrop-blur-md">
+<div class="navbar text-black max-w-[1200px] mx-auto my-3 rounded-xl shadow-xl sticky top-0 z-50 backdrop-blur-md bg-white/70">
   <div class="navbar-start">
     <div class="dropdown">
       <button tabindex="0" role="button" class="btn btn-ghost lg:hidden text-black">
@@ -58,11 +58,12 @@
     </ul>
   </div>
   <div class="navbar-end gap-3">
-    <a href="#" class="btn btn-warning hover:bg-yellow-400 transition-all transform hover:scale-105">
+    <a href="#" class="btn bg-blue-500 text-white hover:bg-blue-600 transition-all transform hover:scale-105">
       Registrarse
     </a>
-    <a href="./app/views/user/login.php" class="btn btn-outline btn-warning hover:bg-yellow-400 text-white transition-all transform hover:scale-105">
+    <a href="#" class="btn btn-outline bg-blue-500 text-white hover:bg-blue-600 hover:text-white transition-all transform hover:scale-105">
       Iniciar Sesión
     </a>
   </div>
 </div>
+
