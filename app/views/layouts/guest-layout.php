@@ -8,15 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/c88d790515.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-indigo-100">
-    <header class="p-4">
-        <?php require_once('./app/views/layouts/header.php'); ?>
-    </header>
+<body>
     <main>
         <?= $content ?? '<p>No hay contenido disponible.</p>'; ?>
     </main>
-    <footer class="bg-indigo-100">
-        <?php require_once('./app/views/layouts/footer.php'); ?>
-    </footer>
 </body>
 </html>

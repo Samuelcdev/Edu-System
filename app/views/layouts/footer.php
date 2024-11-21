@@ -1,14 +1,14 @@
-<div class="max-w-[1200px] mx-auto my-5 px-5 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="max-w-[1200px] mx-auto p-5 grid grid-cols-1 md:grid-cols-3 gap-8">
     <div>
-        <h3 class="text-lg font-bold text-white mb-4">Edu-System</h3>
-        <p class="text-sm text-gray-400">
+        <h3 class="text-lg font-bold text-black mb-4">Edu-System</h3>
+        <p class="text-sm text-black">
             Edu-System es la solución moderna para la gestión educativa. Simplificamos la enseñanza y el aprendizaje para instituciones de todo tipo.
         </p>
-        <p class="mt-4 text-gray-400 text-sm">© 2024 Edu-System. Todos los derechos reservados.</p>
+        <p class="mt-4 text-black text-sm">© 2024 Edu-System. Todos los derechos reservados.</p>
     </div>
 
     <div>
-        <h4 class="text-lg font-bold text-white mb-4">Enlaces Rápidos</h4>
+        <h4 class="text-lg font-bold text-black mb-4">Enlaces Rápidos</h4>
         <ul class="space-y-2">
             <li><a href="#" class="hover:text-blue-400 transition">Inicio</a></li>
             <li><a href="#" class="hover:text-blue-400 transition">Sobre Nosotros</a></li>
@@ -18,7 +18,7 @@
     </div>
 
     <div>
-        <h4 class="text-lg font-bold text-white mb-4">Síguenos</h4>
+        <h4 class="text-lg font-bold text-black mb-4">Síguenos</h4>
         <div class="flex items-center gap-4">
             <a href="#" class="text-gray-400 hover:text-blue-400 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
