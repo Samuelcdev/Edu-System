@@ -8,14 +8,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/c88d790515.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-indigo-100">
+<body class="bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100">
     <header class="p-4">
         <?php require_once('./app/views/layouts/header.php'); ?>
     </header>
     <main>
         <?= $content ?? '<p>No hay contenido disponible.</p>'; ?>
     </main>
-    <footer class="bg-indigo-100">
+    <footer>
         <?php require_once('./app/views/layouts/footer.php'); ?>
     </footer>
 </body>

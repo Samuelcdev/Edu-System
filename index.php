@@ -39,5 +39,5 @@ if ($controllerFile) {
         die("Error: la accion '{$action}' no se encontro en el controlador");
     }
 } else {
-    die("Error: el controlador '{$controller} no se encontro'");
+    die("Error: el controlador '{$controller}' no se encontro");
 }

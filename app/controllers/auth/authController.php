@@ -1,7 +1,7 @@
 <?php
 
 //Funcion para renderizar el login
-function loginForm()
+function showLogin()
 {
     $title = "Iniciar Sesion";
 
@@ -14,6 +14,6 @@ function loginForm()
 
         require_once './app/views/layouts/guest-layout.php';
     } else {
-        die("Error: La vista de la pagina de inicio no se encontro");
+        die("Error: la vista no se encontro");
     }
 }
