@@ -2,21 +2,25 @@
 
 class Connection
 {
-    protected $dsn;
     private $driver = "mysql";
     private $host = "localhost";
     private $database = "edu-system";
     private $username = "root";
     private $password = "";
+    private $connection;
 
     public function __construct()
     {
         try {
-            $dsn = new PDO("{$this->driver}:host={$this->host};database={$this->database}", $this->username, $this->password);
-            $dsn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $dsn;
+            $this->connection = new PDO("{$this->driver}:host={$this->host};dbname={$this->database};charset=utf8", $this->username, $this->password);
+            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            echo "Conexion Fallida" . $e->getMessage();
+            die("Conexion Fallida" . $e->getMessage());
         }
+    }
+
+    public function getConnection()
+    {
+        return $this->connection;
     }
 }

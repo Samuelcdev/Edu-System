@@ -5,7 +5,7 @@ function showLogin()
 {
     $title = "Iniciar Sesion";
 
-    $viewFile = './app/views/auth/login.php';
+    $viewFile = './app/views/auth/loginView.php';
 
     if (file_exists($viewFile)) {
         ob_start();

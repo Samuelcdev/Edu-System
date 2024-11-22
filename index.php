@@ -1,16 +1,13 @@
 <?php
 require_once './app/config/connection.php';
 
-$controller = $_GET['controller'] ?? null;
-$action = $_GET['action'] ?? null;
+$controller = $_GET['controller'] ?? 'site';
+$action = $_GET['action'] ?? 'showLanding';
 $baseDir = "./app/controllers";
 $controllerFile = findControllerFile($baseDir, $controller);
 
-//Condicional para que muestre la landing page si no se recibe controlador y accion
-if (is_null($controller) && is_null($action)) {
-    $controllerFile = './app/controllers/user/siteController.php';
-    require_once $controllerFile;
-    showLanding();
+if(is_null($controller)){
+    echo "Controlador no encontrado";
     exit;
 }
 
@@ -25,19 +22,17 @@ function findControllerFile($baseDir, $controller)
             return $file->getPathname();
         }
     }
-
     return null;
 }
 
-//Condicional para manejar los errores si no encuentra la accion o el controlador
-if ($controllerFile) {
+//Manejo de errores para la accion y el controlador
+try{
     require_once $controllerFile;
-
-    if (function_exists($action)) {
+    if(function_exists($action)){
         $action();
     } else {
-        die("Error: la accion '{$action}' no se encontro en el controlador");
+        throw new Exception("Error: la accion '{$action}' no se encontro en el controlador");
     }
-} else {
-    die("Error: el controlador '{$controller}' no se encontro");
+} catch (Exception $e){
+    echo "Error: " . $e->getMessage();
 }

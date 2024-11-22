@@ -8,32 +8,17 @@
         <label for="email" class="label">
           <span class="label-text text-lg font-medium">Correo Electrónico</span>
         </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="correo@ejemplo.com"
-          class="input input-bordered input-primary w-full text-gray-700 focus:outline-none"
-          required
-        />
+        <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" class="input input-bordered input-primary w-full text-gray-700 focus:outline-none" required />
       </div>
       <div class="form-control">
         <label for="password" class="label">
           <span class="label-text text-lg font-medium">Contraseña</span>
         </label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="••••••••"
-          class="input input-bordered input-primary w-full text-gray-700 focus:outline-none"
-          required
-        />
+        <input type="password" id="password" name="password" placeholder="••••••••" class="input input-bordered input-primary w-full text-gray-700 focus:outline-none" required />
       </div>
       <button
         type="submit"
-        class="btn btn-primary btn-block font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all hover:scale-105"
-      >
+        class="btn btn-primary btn-block font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all hover:scale-105">
         Iniciar Sesión
       </button>
     </form>
@@ -53,6 +38,7 @@
       opacity: 0;
       transform: translateY(-20px);
     }
+
     100% {
       opacity: 1;
       transform: translateY(0);
