@@ -1,7 +1,7 @@
 <section class="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 flex items-center justify-center">
   <div class="bg-white shadow-2xl rounded-xl p-10 max-w-3xl w-full animate-fade-in-down">
     <h1 class="text-4xl font-extrabold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-center mb-8">¡Regístrate</h1>
-    <form action="/app/controllers/auth/registerController.php" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <form action="/app/controllers/auth/AuthController.php" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div class="form-control col-span-1">
         <label for="user_name" class="label">
           <span class="label-text text-lg font-medium">Nombre</span>

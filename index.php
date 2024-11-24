@@ -3,36 +3,58 @@ require_once './app/config/connection.php';
 
 $controller = $_GET['controller'] ?? 'site';
 $action = $_GET['action'] ?? 'showLanding';
-$baseDir = "./app/controllers";
-$controllerFile = findControllerFile($baseDir, $controller);
+$controllerClass = ucfirst($controller) . 'Controller';
+$controllerFileName = $controllerClass . '.php';
 
-if(is_null($controller)){
-    echo "Controlador no encontrado";
-    exit;
+$baseDir = __DIR__ . '/app/controllers';
+
+$searchPaths = [
+    'auth' => $baseDir . '/auth/',
+    'site' => $baseDir . '/user/',
+];
+
+$controllerPath = isset($searchPaths[$controller])
+    ? $searchPaths[$controller] . $controllerFileName
+    : $baseDir . '/' . $controllerFileName;
+if (!file_exists($controllerPath)) {
+    die("Error: el controlador '{$controllerFileName}' no fue encontrado en {$controllerPath}");
 }
 
-//Funcion para buscar en todas las subcarpetas de controllers
-function findControllerFile($baseDir, $controller)
-{
-    $dirIterator = new RecursiveDirectoryIterator($baseDir);
-    $iterator = new RecursiveIteratorIterator($dirIterator);
+try {
+    require_once $controllerPath;
+    if (class_exists($controllerClass)) {
+        $controllerInstance = new $controllerClass();
 
-    foreach ($iterator as $file) {
-        if ($file->getFilename() === "{$controller}Controller.php") {
-            return $file->getPathname();
+        if (method_exists($controllerInstance, $action)) {
+            $controllerInstance->$action();
+        } else {
+            throw new Exception("La acción '{$action}' no se encontró en el controlador");
         }
+    } else {
+        throw new Exception("El controlador '{$controllerClass}' no se encontró");
     }
-    return null;
+} catch (Exception $e) {
+    echo "Error: " . htmlspecialchars($e->getMessage());
 }
 
-//Manejo de errores para la accion y el controlador
-try{
-    require_once $controllerFile;
-    if(function_exists($action)){
-        $action();
-    } else {
-        throw new Exception("Error: la accion '{$action}' no se encontro en el controlador");
+function renderView($viewFile, $data = [], $layout = 'guest-layout')
+{
+    $viewPath = __DIR__ . "/app/views/{$viewFile}.php";
+    $layoutPath = __DIR__ . "/app/views/layouts/{$layout}.php";
+
+    if (!file_exists($viewPath)) {
+        die("Error: la vista '{$viewFile}' no se encontró. Buscando en '{$viewPath}'");
     }
-} catch (Exception $e){
-    echo "Error: " . $e->getMessage();
+
+    extract($data);
+
+    ob_start();
+    require $viewPath;
+    $content = ob_get_clean();
+
+    if (file_exists($layoutPath)) {
+        require $layoutPath;
+    } else {
+        die("Error: el layout {$layout} no se encontró");
+    }
 }

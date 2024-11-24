@@ -21,7 +21,7 @@ CREATE TABLE users(
     user_name VARCHAR(255) NOT NULL,
     user_lastname VARCHAR(255) NOT NULL,
     user_password VARCHAR(255) NOT NULL,
-    user_email VARCHAR(255) NOT NULL,
+    user_email VARCHAR(255) UNIQUE NOT NULL,
     user_document INT NOT NULL,
     user_profile ENUM('admin', 'teacher', 'student') NOT NULL,
     user_state ENUM('active', 'inactive') NOT NULL

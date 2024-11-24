@@ -58,10 +58,10 @@
     </ul>
   </div>
   <div class="navbar-end gap-3">
-    <a href="index.php?controller=register&action=showRegister" class="btn bg-blue-500 text-white hover:bg-blue-600 transition-all transform hover:scale-105">
+    <a href="index.php?controller=auth&action=showRegister" class="btn bg-blue-500 text-white hover:bg-blue-600 transition-all transform hover:scale-105">
       Registrarse
     </a>
-    <a href="index.php?controller=auth&action=showLogin" class="btn btn-outline bg-blue-500 text-white hover:bg-blue-600 hover:text-white transition-all transform hover:scale-105">
+    <a href="#" class="btn btn-outline bg-blue-500 text-white hover:bg-blue-600 hover:text-white transition-all transform hover:scale-105">
       Iniciar Sesión
     </a>
   </div>
