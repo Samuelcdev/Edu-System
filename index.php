@@ -5,7 +5,6 @@ $controller = $_GET['controller'] ?? 'site';
 $action = $_GET['action'] ?? 'showLanding';
 $controllerClass = ucfirst($controller) . 'Controller';
 $controllerFileName = $controllerClass . '.php';
-
 $baseDir = __DIR__ . '/app/controllers';
 
 $searchPaths = [
@@ -16,6 +15,7 @@ $searchPaths = [
 $controllerPath = isset($searchPaths[$controller])
     ? $searchPaths[$controller] . $controllerFileName
     : $baseDir . '/' . $controllerFileName;
+
 if (!file_exists($controllerPath)) {
     die("Error: el controlador '{$controllerFileName}' no fue encontrado en {$controllerPath}");
 }
@@ -39,6 +39,21 @@ try {
 
 function renderView($viewFile, $data = [], $layout = 'guest-layout')
 {
+    if (isset($_SESSION['error_message'])) {
+        $data['error_message'] = $_SESSION['error_message'];
+        unset($_SESSION['error_message']);
+    }
+
+    if (isset($_SESSION['success_message'])) {
+        $data['success_message'] = $_SESSION['success_message'];
+        unset($_SESSION['success_message']);
+    }
+
+    if (isset($_SESSION['form_data'])) {
+        $data['form_data'] = $_SESSION['form_data'];
+        unset($_SESSION['form_data']);
+    }
+
     $viewPath = __DIR__ . "/app/views/{$viewFile}.php";
     $layoutPath = __DIR__ . "/app/views/layouts/{$layout}.php";
 
